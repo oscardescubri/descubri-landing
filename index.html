@@ -3,29 +3,109 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Descubri</title>
+    <title>Descubri — Discover Photo Locations & Shot Recipes</title>
+    <meta name="description" content="A community for photographers to discover photo locations on a map, share shot recipes (Fuji sims, LUTs, Lightroom presets, film stocks), and sell originals." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
-      body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;margin:0;background:#0b0b0c;color:#f2f2f2}
-      .wrap{max-width:960px;margin:0 auto;padding:72px 20px}
-      .badge{display:inline-block;padding:6px 10px;border:1px solid #2a2a2d;border-radius:999px;color:#bdbdc2;font-size:12px}
-      h1{font-size:48px;line-height:1.05;margin:18px 0}
-      p{font-size:18px;color:#c9c9cf;max-width:720px}
-      .card{margin-top:28px;padding:18px;border:1px solid #2a2a2d;border-radius:16px;background:#121214}
-      a{color:#9ad1ff;text-decoration:none}
-      .muted{font-size:14px;color:#a7a7ad}
+      *{box-sizing:border-box}
+      body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;margin:0;background:#08090a;color:#e8e8ec;overflow-x:hidden}
+      
+      /* Ambient background */
+      .bg-glow{position:fixed;top:-40%;left:50%;transform:translateX(-50%);width:140%;max-width:1200px;height:800px;background:radial-gradient(ellipse at center,rgba(147,112,219,0.08) 0%,rgba(64,156,255,0.04) 40%,transparent 70%);pointer-events:none;z-index:0}
+      
+      .wrap{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:100px 24px 80px;min-height:100vh}
+      
+      /* Badge */
+      .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:999px;background:rgba(255,255,255,0.03);color:#a0a0a8;font-size:13px;font-weight:500;letter-spacing:0.02em;animation:fadeIn 0.6s ease-out}
+      .badge::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80}
+      
+      /* Typography */
+      h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(42px,8vw,64px);font-weight:400;line-height:1.1;margin:32px 0 24px;letter-spacing:-0.02em;animation:fadeUp 0.7s ease-out 0.1s both}
+      h1 .accent{color:#a78bfa;font-style:italic}
+      
+      .subtitle{font-size:clamp(17px,2.5vw,20px);color:#9898a0;line-height:1.6;margin:0 0 48px;animation:fadeUp 0.7s ease-out 0.2s both}
+      
+      /* Features grid */
+      .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:48px;animation:fadeUp 0.7s ease-out 0.3s both}
+      .feature{padding:20px;border:1px solid rgba(255,255,255,0.06);border-radius:14px;background:rgba(255,255,255,0.02);transition:all 0.25s ease}
+      .feature:hover{border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.04)}
+      .feature-icon{font-size:24px;margin-bottom:10px}
+      .feature-title{font-weight:600;font-size:15px;margin-bottom:6px;color:#e8e8ec}
+      .feature-desc{font-size:13px;color:#78787f;line-height:1.5}
+      
+      /* CTA section */
+      .cta-section{padding:32px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;background:linear-gradient(145deg,rgba(167,139,250,0.06) 0%,rgba(64,156,255,0.04) 100%);text-align:center;animation:fadeUp 0.7s ease-out 0.4s both}
+      .cta-title{font-family:'Instrument Serif',Georgia,serif;font-size:24px;margin:0 0 8px;font-weight:400}
+      .cta-sub{font-size:14px;color:#9898a0;margin:0 0 20px}
+      
+      .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,#a78bfa 0%,#818cf8 100%);color:#08090a;font-size:15px;font-weight:600;border:none;border-radius:12px;cursor:pointer;text-decoration:none;transition:all 0.2s ease}
+      .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(167,139,250,0.3)}
+      
+      /* Footer */
+      footer{margin-top:64px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.06);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;animation:fadeUp 0.7s ease-out 0.5s both}
+      .footer-brand{font-weight:600;font-size:15px;color:#78787f}
+      .footer-links{display:flex;gap:24px}
+      .footer-links a{color:#5898d4;font-size:14px;text-decoration:none;transition:color 0.2s}
+      .footer-links a:hover{color:#a78bfa}
+      
+      /* Animations */
+      @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+      @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+      
+      /* Mobile tweaks */
+      @media(max-width:480px){
+        .wrap{padding:72px 20px 60px}
+        .features{grid-template-columns:1fr}
+        footer{flex-direction:column;text-align:center}
+      }
     </style>
   </head>
   <body>
+    <div class="bg-glow"></div>
     <div class="wrap">
-      <span class="badge">Descubri • MVP in progress</span>
-      <h1>Find the shot. Learn the recipe. Own the original.</h1>
-      <p>
-        Descubri is a community for photographers: discover photo locations on a map, share “shot recipes”
-        (Fuji sims/LUTs/lr presets/film stocks), and sell originals/RAWs/licenses.
+      <span class="badge">MVP in progress</span>
+      
+      <h1>Find the shot.<br>Learn the <span class="accent">recipe</span>.<br>Own the original.</h1>
+      
+      <p class="subtitle">
+        A community for photographers to discover photo locations on a map, share shot recipes—Fuji film sims, Lightroom presets, LUTs, film stocks—and sell originals, RAWs, and licenses.
       </p>
-      <div class="card">
-        <p class="muted">Contact: <a href="mailto:hello@descubri.app">hello@descubri.app</a></p>
+      
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">📍</div>
+          <div class="feature-title">Map-based discovery</div>
+          <div class="feature-desc">Find photo spots near you or explore locations around the world</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🎞️</div>
+          <div class="feature-title">Shot recipes</div>
+          <div class="feature-desc">Share & learn the exact settings, film sims, and edits behind every photo</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">💎</div>
+          <div class="feature-title">Sell your work</div>
+          <div class="feature-desc">Offer full-res JPEGs, RAWs, and licenses directly to your audience</div>
+        </div>
       </div>
+      
+      <div class="cta-section">
+        <h2 class="cta-title">Be part of the early community</h2>
+        <p class="cta-sub">We're building in public. Reach out to get early access.</p>
+        <a href="mailto:hello@descubri.app?subject=Early%20Access%20Request" class="btn">
+          Request Early Access →
+        </a>
+      </div>
+      
+      <footer>
+        <span class="footer-brand">© 2025 Descubri</span>
+        <div class="footer-links">
+          <a href="mailto:hello@descubri.app">Contact</a>
+          <a href="https://twitter.com/descubriapp" target="_blank" rel="noopener">Twitter</a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
