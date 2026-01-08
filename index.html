@@ -10,7 +10,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://descubri.app" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/png" href="/icon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -27,7 +27,7 @@
       nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;background:rgba(8,9,10,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05)}
       .nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
       .nav-logo{font-weight:700;font-size:18px;color:#e8e8ec;text-decoration:none;display:flex;align-items:center;gap:8px}
-      .nav-logo svg{width:28px;height:28px}
+      .nav-logo img{width:28px;height:28px;border-radius:6px}
       .nav-links{display:flex;gap:32px;align-items:center}
       .nav-links a{color:#9898a0;font-size:14px;text-decoration:none;transition:color 0.2s}
       .nav-links a:hover{color:#e8e8ec}
@@ -224,11 +224,7 @@
     <nav>
       <div class="nav-inner">
         <a href="#" class="nav-logo">
-          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="16" cy="16" r="14" stroke="#a78bfa" stroke-width="2"/>
-            <circle cx="16" cy="16" r="6" fill="#a78bfa"/>
-            <path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img src="/icon.png" alt="Descubri">
           Descubri
         </a>
         <div class="nav-links">
@@ -642,10 +638,7 @@
       <div class="footer-inner">
         <div class="footer-brand">
           <span class="logo">
-            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="16" cy="16" r="14" stroke="#a78bfa" stroke-width="2"/>
-              <circle cx="16" cy="16" r="6" fill="#a78bfa"/>
-            </svg>
+            <img src="/icon.png" alt="Descubri" style="width:24px;height:24px;border-radius:4px">
             Descubri
           </span>
           <p>A map-based community for photographers to discover locations, share shot recipes, and sell their work.</p>
