@@ -5,106 +5,678 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Descubri — Discover Photo Locations & Shot Recipes</title>
     <meta name="description" content="A community for photographers to discover photo locations on a map, share shot recipes (Fuji sims, LUTs, Lightroom presets, film stocks), and sell originals." />
+    <meta property="og:title" content="Descubri — Discover Photo Locations & Shot Recipes" />
+    <meta property="og:description" content="Find the shot. Learn the recipe. Own the original. A map-based community for photographers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://descubri.app" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
-      *{box-sizing:border-box}
-      body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;margin:0;background:#08090a;color:#e8e8ec;overflow-x:hidden}
+      *{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth}
+      body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#08090a;color:#e8e8ec;overflow-x:hidden;line-height:1.6}
       
-      /* Ambient background */
-      .bg-glow{position:fixed;top:-40%;left:50%;transform:translateX(-50%);width:140%;max-width:1200px;height:800px;background:radial-gradient(ellipse at center,rgba(147,112,219,0.08) 0%,rgba(64,156,255,0.04) 40%,transparent 70%);pointer-events:none;z-index:0}
+      /* Ambient backgrounds */
+      .bg-glow{position:fixed;top:-40%;left:50%;transform:translateX(-50%);width:140%;max-width:1400px;height:900px;background:radial-gradient(ellipse at center,rgba(147,112,219,0.08) 0%,rgba(64,156,255,0.04) 40%,transparent 70%);pointer-events:none;z-index:0}
+      .bg-glow-2{position:fixed;bottom:-20%;right:-10%;width:800px;height:800px;background:radial-gradient(ellipse at center,rgba(74,222,128,0.04) 0%,transparent 60%);pointer-events:none;z-index:0}
       
-      .wrap{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:100px 24px 80px;min-height:100vh}
+      /* Navigation */
+      nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;background:rgba(8,9,10,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05)}
+      .nav-inner{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+      .nav-logo{font-weight:700;font-size:18px;color:#e8e8ec;text-decoration:none;display:flex;align-items:center;gap:8px}
+      .nav-logo svg{width:28px;height:28px}
+      .nav-links{display:flex;gap:32px;align-items:center}
+      .nav-links a{color:#9898a0;font-size:14px;text-decoration:none;transition:color 0.2s}
+      .nav-links a:hover{color:#e8e8ec}
+      .nav-cta{padding:10px 20px;background:rgba(167,139,250,0.15);color:#a78bfa;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;transition:all 0.2s}
+      .nav-cta:hover{background:rgba(167,139,250,0.25);color:#c4b5fd}
       
-      /* Badge */
-      .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border:1px solid rgba(255,255,255,0.08);border-radius:999px;background:rgba(255,255,255,0.03);color:#a0a0a8;font-size:13px;font-weight:500;letter-spacing:0.02em;animation:fadeIn 0.6s ease-out}
+      /* Sections */
+      section{position:relative;z-index:1}
+      .container{max-width:1200px;margin:0 auto;padding:0 24px}
+      
+      /* Hero */
+      .hero{padding:160px 24px 100px;text-align:center}
+      .hero-inner{max-width:800px;margin:0 auto}
+      
+      .badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border:1px solid rgba(255,255,255,0.08);border-radius:999px;background:rgba(255,255,255,0.03);color:#a0a0a8;font-size:13px;font-weight:500;letter-spacing:0.02em;animation:fadeIn 0.6s ease-out}
       .badge::before{content:'';width:6px;height:6px;background:#4ade80;border-radius:50%;box-shadow:0 0 8px #4ade80}
       
-      /* Typography */
-      h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(42px,8vw,64px);font-weight:400;line-height:1.1;margin:32px 0 24px;letter-spacing:-0.02em;animation:fadeUp 0.7s ease-out 0.1s both}
+      h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(48px,9vw,80px);font-weight:400;line-height:1.05;margin:32px 0 28px;letter-spacing:-0.02em;animation:fadeUp 0.7s ease-out 0.1s both}
       h1 .accent{color:#a78bfa;font-style:italic}
       
-      .subtitle{font-size:clamp(17px,2.5vw,20px);color:#9898a0;line-height:1.6;margin:0 0 48px;animation:fadeUp 0.7s ease-out 0.2s both}
+      .hero-subtitle{font-size:clamp(18px,2.5vw,22px);color:#9898a0;line-height:1.6;margin:0 auto 40px;max-width:600px;animation:fadeUp 0.7s ease-out 0.2s both}
       
-      /* Features grid */
-      .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:48px;animation:fadeUp 0.7s ease-out 0.3s both}
-      .feature{padding:20px;border:1px solid rgba(255,255,255,0.06);border-radius:14px;background:rgba(255,255,255,0.02);transition:all 0.25s ease}
-      .feature:hover{border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.04)}
-      .feature-icon{font-size:24px;margin-bottom:10px}
-      .feature-title{font-weight:600;font-size:15px;margin-bottom:6px;color:#e8e8ec}
-      .feature-desc{font-size:13px;color:#78787f;line-height:1.5}
-      
-      /* CTA section */
-      .cta-section{padding:32px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;background:linear-gradient(145deg,rgba(167,139,250,0.06) 0%,rgba(64,156,255,0.04) 100%);text-align:center;animation:fadeUp 0.7s ease-out 0.4s both}
-      .cta-title{font-family:'Instrument Serif',Georgia,serif;font-size:24px;margin:0 0 8px;font-weight:400}
-      .cta-sub{font-size:14px;color:#9898a0;margin:0 0 20px}
-      
-      .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:linear-gradient(135deg,#a78bfa 0%,#818cf8 100%);color:#08090a;font-size:15px;font-weight:600;border:none;border-radius:12px;cursor:pointer;text-decoration:none;transition:all 0.2s ease}
+      .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;animation:fadeUp 0.7s ease-out 0.3s both}
+      .btn{display:inline-flex;align-items:center;gap:8px;padding:16px 32px;background:linear-gradient(135deg,#a78bfa 0%,#818cf8 100%);color:#08090a;font-size:16px;font-weight:600;border:none;border-radius:12px;cursor:pointer;text-decoration:none;transition:all 0.2s ease}
       .btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(167,139,250,0.3)}
+      .btn-secondary{background:transparent;border:1px solid rgba(255,255,255,0.15);color:#e8e8ec}
+      .btn-secondary:hover{background:rgba(255,255,255,0.05);border-color:rgba(255,255,255,0.25);box-shadow:none;transform:translateY(-2px)}
+      
+      /* App preview mockup */
+      .app-preview{margin-top:80px;animation:fadeUp 0.8s ease-out 0.4s both}
+      .mockup-container{position:relative;max-width:900px;margin:0 auto;display:flex;justify-content:center;gap:24px;padding:0 20px}
+      .phone-mockup{width:280px;height:580px;background:linear-gradient(180deg,#1a1a1f 0%,#0f0f12 100%);border-radius:40px;border:3px solid #2a2a30;padding:12px;box-shadow:0 40px 80px rgba(0,0,0,0.5)}
+      .phone-screen{width:100%;height:100%;background:#0a0a0c;border-radius:30px;overflow:hidden;display:flex;flex-direction:column}
+      .phone-header{height:48px;background:linear-gradient(180deg,rgba(167,139,250,0.1) 0%,transparent 100%);display:flex;align-items:center;justify-content:center;padding:0 16px}
+      .phone-header span{font-size:13px;font-weight:600;color:#a78bfa}
+      .phone-content{flex:1;padding:16px;display:flex;flex-direction:column;gap:12px}
+      .mock-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px;display:flex;gap:10px}
+      .mock-thumb{width:60px;height:60px;background:linear-gradient(135deg,#2a2a35 0%,#1a1a20 100%);border-radius:8px;flex-shrink:0}
+      .mock-info{flex:1;display:flex;flex-direction:column;gap:4px}
+      .mock-title{height:10px;background:rgba(255,255,255,0.15);border-radius:4px;width:80%}
+      .mock-sub{height:8px;background:rgba(255,255,255,0.08);border-radius:4px;width:60%}
+      .mock-map{flex:1;background:linear-gradient(180deg,#1a1a25 0%,#12121a 100%);border-radius:12px;position:relative;overflow:hidden;min-height:200px}
+      .mock-pin{position:absolute;width:24px;height:24px;background:#a78bfa;border-radius:50%;border:3px solid #08090a}
+      .mock-pin:nth-child(1){top:30%;left:25%}
+      .mock-pin:nth-child(2){top:50%;left:60%}
+      .mock-pin:nth-child(3){top:70%;left:35%}
+      .mock-pin:nth-child(4){top:25%;left:70%}
+      
+      /* Problem section */
+      .problem{padding:120px 24px;background:linear-gradient(180deg,transparent 0%,rgba(167,139,250,0.02) 50%,transparent 100%)}
+      .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+      .problem h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(32px,5vw,48px);font-weight:400;margin-bottom:24px;line-height:1.2}
+      .problem-text{color:#9898a0;font-size:17px;line-height:1.8}
+      .problem-text p{margin-bottom:20px}
+      .pain-points{display:flex;flex-direction:column;gap:16px}
+      .pain-point{display:flex;gap:16px;padding:20px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:12px}
+      .pain-icon{width:44px;height:44px;background:rgba(239,68,68,0.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+      .pain-content h4{font-size:15px;font-weight:600;margin-bottom:4px;color:#e8e8ec}
+      .pain-content p{font-size:14px;color:#78787f}
+      
+      /* Solution / Features */
+      .features{padding:120px 24px}
+      .section-header{text-align:center;max-width:700px;margin:0 auto 64px}
+      .section-header h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(32px,5vw,48px);font-weight:400;margin-bottom:16px}
+      .section-header p{color:#9898a0;font-size:18px}
+      
+      .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+      .feature-card{padding:32px;border:1px solid rgba(255,255,255,0.06);border-radius:20px;background:rgba(255,255,255,0.02);transition:all 0.3s ease}
+      .feature-card:hover{border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.04);transform:translateY(-4px)}
+      .feature-icon{width:56px;height:56px;background:linear-gradient(135deg,rgba(167,139,250,0.15) 0%,rgba(129,140,248,0.1) 100%);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:20px}
+      .feature-card h3{font-size:18px;font-weight:600;margin-bottom:10px}
+      .feature-card p{font-size:14px;color:#78787f;line-height:1.6}
+      
+      /* How it works */
+      .how-it-works{padding:120px 24px;background:linear-gradient(180deg,transparent 0%,rgba(64,156,255,0.02) 50%,transparent 100%)}
+      .steps{display:flex;flex-direction:column;gap:0;position:relative;max-width:700px;margin:0 auto}
+      .steps::before{content:'';position:absolute;left:28px;top:60px;bottom:60px;width:2px;background:linear-gradient(180deg,#a78bfa 0%,#818cf8 50%,#4ade80 100%)}
+      .step{display:flex;gap:32px;padding:32px 0}
+      .step-number{width:56px;height:56px;background:#08090a;border:2px solid #a78bfa;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#a78bfa;flex-shrink:0;z-index:1}
+      .step:nth-child(2) .step-number{border-color:#818cf8;color:#818cf8}
+      .step:nth-child(3) .step-number{border-color:#4ade80;color:#4ade80}
+      .step-content h3{font-size:20px;font-weight:600;margin-bottom:8px}
+      .step-content p{color:#9898a0;font-size:15px}
+      
+      /* Target users */
+      .target-users{padding:120px 24px}
+      .users-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+      .user-card{padding:28px;text-align:center;border:1px solid rgba(255,255,255,0.06);border-radius:16px;background:rgba(255,255,255,0.02);transition:all 0.3s ease}
+      .user-card:hover{border-color:rgba(167,139,250,0.2);background:rgba(167,139,250,0.03)}
+      .user-icon{font-size:40px;margin-bottom:16px}
+      .user-card h4{font-size:16px;font-weight:600;margin-bottom:8px}
+      .user-card p{font-size:13px;color:#78787f;line-height:1.5}
+      
+      /* Tech stack */
+      .tech-stack{padding:120px 24px;background:linear-gradient(180deg,transparent 0%,rgba(167,139,250,0.02) 50%,transparent 100%)}
+      .tech-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:48px;align-items:start}
+      .tech-category{padding:32px;border:1px solid rgba(255,255,255,0.06);border-radius:20px;background:rgba(255,255,255,0.02)}
+      .tech-category h3{font-size:14px;text-transform:uppercase;letter-spacing:0.1em;color:#a78bfa;margin-bottom:20px}
+      .tech-list{display:flex;flex-wrap:wrap;gap:10px}
+      .tech-item{padding:10px 16px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;font-size:13px;color:#c0c0c8;display:flex;align-items:center;gap:8px}
+      .tech-item img{width:18px;height:18px;filter:grayscale(1) brightness(1.5)}
+      
+      /* Business model */
+      .business{padding:120px 24px}
+      .business-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+      .business-card{padding:32px;border:1px solid rgba(255,255,255,0.06);border-radius:20px;background:rgba(255,255,255,0.02);text-align:center}
+      .business-icon{width:64px;height:64px;margin:0 auto 20px;background:linear-gradient(135deg,rgba(74,222,128,0.15) 0%,rgba(74,222,128,0.05) 100%);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:28px}
+      .business-card h3{font-size:18px;font-weight:600;margin-bottom:10px}
+      .business-card p{font-size:14px;color:#78787f;line-height:1.6}
+      
+      /* Roadmap */
+      .roadmap{padding:120px 24px;background:linear-gradient(180deg,transparent 0%,rgba(64,156,255,0.02) 50%,transparent 100%)}
+      .roadmap-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+      .roadmap-item{padding:24px;border:1px solid rgba(255,255,255,0.06);border-radius:16px;background:rgba(255,255,255,0.02);position:relative}
+      .roadmap-item.current{border-color:rgba(167,139,250,0.4);background:rgba(167,139,250,0.05)}
+      .roadmap-item.current::before{content:'Current';position:absolute;top:-10px;left:20px;padding:4px 12px;background:#a78bfa;color:#08090a;font-size:11px;font-weight:600;border-radius:20px;text-transform:uppercase;letter-spacing:0.05em}
+      .roadmap-phase{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:#78787f;margin-bottom:12px}
+      .roadmap-item h4{font-size:16px;font-weight:600;margin-bottom:10px}
+      .roadmap-item ul{list-style:none;padding:0}
+      .roadmap-item li{font-size:13px;color:#9898a0;padding:4px 0;display:flex;align-items:center;gap:8px}
+      .roadmap-item li::before{content:'';width:4px;height:4px;background:#4ade80;border-radius:50%}
+      .roadmap-item.current li::before{background:#a78bfa}
+      .roadmap-item.future li::before{background:#78787f}
+      
+      /* Team */
+      .team{padding:120px 24px}
+      .team-content{display:grid;grid-template-columns:1fr 2fr;gap:64px;align-items:start}
+      .founder-card{padding:32px;border:1px solid rgba(255,255,255,0.08);border-radius:20px;background:rgba(255,255,255,0.02);text-align:center}
+      .founder-photo{width:120px;height:120px;background:linear-gradient(135deg,#a78bfa 0%,#818cf8 100%);border-radius:50%;margin:0 auto 20px;display:flex;align-items:center;justify-content:center;font-size:48px;color:#08090a;font-weight:600}
+      .founder-name{font-size:20px;font-weight:600;margin-bottom:4px}
+      .founder-role{font-size:14px;color:#a78bfa;margin-bottom:16px}
+      .founder-bio{font-size:14px;color:#9898a0;line-height:1.6}
+      .founder-links{display:flex;justify-content:center;gap:16px;margin-top:20px}
+      .founder-links a{width:36px;height:36px;background:rgba(255,255,255,0.05);border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9898a0;text-decoration:none;transition:all 0.2s}
+      .founder-links a:hover{background:rgba(167,139,250,0.2);color:#a78bfa}
+      
+      .company-info h3{font-size:14px;text-transform:uppercase;letter-spacing:0.1em;color:#a78bfa;margin-bottom:20px}
+      .company-info p{color:#9898a0;font-size:16px;line-height:1.8;margin-bottom:24px}
+      .company-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+      .stat{padding:20px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;text-align:center}
+      .stat-value{font-size:28px;font-weight:700;color:#a78bfa;margin-bottom:4px}
+      .stat-label{font-size:12px;color:#78787f;text-transform:uppercase;letter-spacing:0.05em}
+      
+      /* CTA */
+      .final-cta{padding:120px 24px}
+      .cta-box{max-width:700px;margin:0 auto;padding:56px;border:1px solid rgba(255,255,255,0.08);border-radius:28px;background:linear-gradient(145deg,rgba(167,139,250,0.08) 0%,rgba(64,156,255,0.04) 100%);text-align:center}
+      .cta-box h2{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(28px,5vw,40px);font-weight:400;margin-bottom:16px}
+      .cta-box p{font-size:17px;color:#9898a0;margin-bottom:32px}
       
       /* Footer */
-      footer{margin-top:64px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.06);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:16px;animation:fadeUp 0.7s ease-out 0.5s both}
-      .footer-brand{font-weight:600;font-size:15px;color:#78787f}
-      .footer-links{display:flex;gap:24px}
-      .footer-links a{color:#5898d4;font-size:14px;text-decoration:none;transition:color 0.2s}
-      .footer-links a:hover{color:#a78bfa}
+      footer{padding:48px 24px;border-top:1px solid rgba(255,255,255,0.06)}
+      .footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px}
+      .footer-brand{display:flex;flex-direction:column;gap:16px}
+      .footer-brand .logo{font-weight:700;font-size:20px;display:flex;align-items:center;gap:8px}
+      .footer-brand p{font-size:14px;color:#78787f;line-height:1.6;max-width:280px}
+      .footer-col h4{font-size:13px;text-transform:uppercase;letter-spacing:0.1em;color:#78787f;margin-bottom:16px}
+      .footer-col ul{list-style:none;padding:0}
+      .footer-col li{margin-bottom:10px}
+      .footer-col a{color:#9898a0;font-size:14px;text-decoration:none;transition:color 0.2s}
+      .footer-col a:hover{color:#a78bfa}
+      .footer-bottom{max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.04);display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#5a5a60}
       
       /* Animations */
       @keyframes fadeIn{from{opacity:0}to{opacity:1}}
       @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
       
-      /* Mobile tweaks */
-      @media(max-width:480px){
-        .wrap{padding:72px 20px 60px}
-        .features{grid-template-columns:1fr}
-        footer{flex-direction:column;text-align:center}
+      /* Mobile responsive */
+      @media(max-width:1024px){
+        .problem-grid,.tech-grid,.team-content{grid-template-columns:1fr}
+        .features-grid,.users-grid,.business-grid{grid-template-columns:repeat(2,1fr)}
+        .roadmap-timeline{grid-template-columns:repeat(2,1fr)}
+        .footer-inner{grid-template-columns:1fr 1fr}
+        .mockup-container{flex-direction:column;align-items:center}
+        .phone-mockup{width:260px;height:540px}
+      }
+      
+      @media(max-width:640px){
+        nav{padding:12px 16px}
+        .nav-links a:not(.nav-cta){display:none}
+        .hero{padding:120px 20px 80px}
+        .features-grid,.users-grid,.business-grid,.company-stats{grid-template-columns:1fr}
+        .roadmap-timeline{grid-template-columns:1fr}
+        .footer-inner{grid-template-columns:1fr}
+        .footer-bottom{flex-direction:column;gap:12px;text-align:center}
+        .phone-mockup{width:240px;height:500px}
       }
     </style>
   </head>
   <body>
     <div class="bg-glow"></div>
-    <div class="wrap">
-      <span class="badge">MVP in progress</span>
-      
-      <h1>Find the shot.<br>Learn the <span class="accent">recipe</span>.<br>Own the original.</h1>
-      
-      <p class="subtitle">
-        A community for photographers to discover photo locations on a map, share shot recipes—Fuji film sims, Lightroom presets, LUTs, film stocks—and sell originals, RAWs, and licenses.
-      </p>
-      
-      <div class="features">
-        <div class="feature">
-          <div class="feature-icon">📍</div>
-          <div class="feature-title">Map-based discovery</div>
-          <div class="feature-desc">Find photo spots near you or explore locations around the world</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">🎞️</div>
-          <div class="feature-title">Shot recipes</div>
-          <div class="feature-desc">Share & learn the exact settings, film sims, and edits behind every photo</div>
-        </div>
-        <div class="feature">
-          <div class="feature-icon">💎</div>
-          <div class="feature-title">Sell your work</div>
-          <div class="feature-desc">Offer full-res JPEGs, RAWs, and licenses directly to your audience</div>
-        </div>
-      </div>
-      
-      <div class="cta-section">
-        <h2 class="cta-title">Be part of the early community</h2>
-        <p class="cta-sub">We're building in public. Reach out to get early access.</p>
-        <a href="mailto:hello@descubri.app?subject=Early%20Access%20Request" class="btn">
-          Request Early Access →
+    <div class="bg-glow-2"></div>
+    
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="16" cy="16" r="14" stroke="#a78bfa" stroke-width="2"/>
+            <circle cx="16" cy="16" r="6" fill="#a78bfa"/>
+            <path d="M16 2v6M16 24v6M2 16h6M24 16h6" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Descubri
         </a>
+        <div class="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it Works</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="#team">Team</a>
+          <a href="mailto:hello@descubri.app" class="nav-cta">Get Early Access</a>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="badge">MVP in Development</span>
+        <h1>Find the shot.<br>Learn the <span class="accent">recipe</span>.<br>Own the original.</h1>
+        <p class="hero-subtitle">
+          A map-based community for photographers to discover photo locations, share shot recipes—Fuji film sims, Lightroom presets, LUTs, film stocks—and sell originals, RAWs, and licenses.
+        </p>
+        <div class="hero-cta">
+          <a href="mailto:hello@descubri.app?subject=Early%20Access%20Request" class="btn">Request Early Access →</a>
+          <a href="#features" class="btn btn-secondary">See Features</a>
+        </div>
       </div>
       
-      <footer>
-        <span class="footer-brand">© 2026 Descubri</span>
-        <div class="footer-links">
-          <a href="mailto:hello@descubri.app">Contact</a>
+      <!-- App Preview -->
+      <div class="app-preview">
+        <div class="mockup-container">
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <div class="phone-header"><span>📍 Discover Spots</span></div>
+              <div class="phone-content">
+                <div class="mock-map">
+                  <div class="mock-pin"></div>
+                  <div class="mock-pin"></div>
+                  <div class="mock-pin"></div>
+                  <div class="mock-pin"></div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-thumb"></div>
+                  <div class="mock-info">
+                    <div class="mock-title"></div>
+                    <div class="mock-sub"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="phone-mockup">
+            <div class="phone-screen">
+              <div class="phone-header"><span>🎞️ Shot Recipe</span></div>
+              <div class="phone-content">
+                <div class="mock-card">
+                  <div class="mock-thumb"></div>
+                  <div class="mock-info">
+                    <div class="mock-title"></div>
+                    <div class="mock-sub"></div>
+                  </div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-info">
+                    <div class="mock-title" style="width:40%"></div>
+                    <div class="mock-sub" style="width:90%;margin-top:8px"></div>
+                    <div class="mock-sub" style="width:75%;margin-top:4px"></div>
+                    <div class="mock-sub" style="width:60%;margin-top:4px"></div>
+                  </div>
+                </div>
+                <div class="mock-card">
+                  <div class="mock-info">
+                    <div class="mock-title" style="width:30%"></div>
+                    <div class="mock-sub" style="width:100%;margin-top:8px"></div>
+                    <div class="mock-sub" style="width:85%;margin-top:4px"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
+    
+    <!-- Problem -->
+    <section class="problem" id="problem">
+      <div class="container">
+        <div class="problem-grid">
+          <div>
+            <h2>Photography knowledge is scattered and gatekept</h2>
+            <div class="problem-text">
+              <p>Finding great photo locations means scrolling through geo-tagged posts on Instagram, buying overpriced PDF guides, or hoping someone on Reddit shares their secrets.</p>
+              <p>And once you find a spot? Good luck figuring out exactly how the photographer achieved that look—the camera settings, the film simulation, the Lightroom preset, the time of day.</p>
+            </div>
+          </div>
+          <div class="pain-points">
+            <div class="pain-point">
+              <div class="pain-icon">🔍</div>
+              <div class="pain-content">
+                <h4>Location hunting is a scavenger hunt</h4>
+                <p>Geo-tags are vague, guides are expensive, and the best spots stay hidden</p>
+              </div>
+            </div>
+            <div class="pain-point">
+              <div class="pain-icon">🤷</div>
+              <div class="pain-content">
+                <h4>"How did you edit this?" goes unanswered</h4>
+                <p>Most photographers don't share their recipes—or they're buried in YouTube comments</p>
+              </div>
+            </div>
+            <div class="pain-point">
+              <div class="pain-icon">💸</div>
+              <div class="pain-content">
+                <h4>No easy way to sell your work</h4>
+                <p>Setting up a shop is complex; licensing is confusing; marketplaces take huge cuts</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-header">
+          <h2>Everything in one place</h2>
+          <p>Descubri combines location discovery, recipe sharing, and a creator marketplace into one seamless experience.</p>
+        </div>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">📍</div>
+            <h3>Map-Based Discovery</h3>
+            <p>Explore photo spots on an interactive map. See what others have shot at each location. Filter by distance, style, or camera system.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🎞️</div>
+            <h3>Shot Recipes</h3>
+            <p>Every post can include the full recipe: camera settings, Fuji film simulation, Lightroom preset, LUT, or film stock. Learn exactly how each shot was made.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🔒</div>
+            <h3>Spot Protection</h3>
+            <p>Creators control access. Show fuzzy locations publicly, reveal exact coordinates to purchasers or mutual followers. Protect your secret spots.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">💎</div>
+            <h3>Sell Your Work</h3>
+            <p>Offer full-resolution JPEGs, RAW files, or commercial licenses directly from your post. Stripe-powered payments with instant delivery.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">🤝</div>
+            <h3>Community First</h3>
+            <p>Follow photographers you admire, bookmark favorite spots and recipes, like and comment. Built for genuine connection, not vanity metrics.</p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">📱</div>
+            <h3>Mobile-Native</h3>
+            <p>Built for iPhone and Android from day one. Capture a moment, add your recipe, pin the location, and share—all from the field.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2>Simple by design</h2>
+          <p>Three steps from capture to community</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Share your shot</h3>
+              <p>Upload a photo, add a caption and tags. Our EXIF reader auto-fills camera settings when available.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Add the recipe & spot</h3>
+              <p>Attach your film simulation, Lightroom preset, LUT, or film stock. Pin the location on the map—you control whether it's fuzzy or exact.</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Connect & monetize</h3>
+              <p>Others discover your work through the map and feed. Optionally sell full-res files, RAWs, or licenses with one-tap checkout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Target Users -->
+    <section class="target-users" id="users">
+      <div class="container">
+        <div class="section-header">
+          <h2>Built for photographers who share</h2>
+          <p>Whether you shoot Fuji, Lumix, film, or Lightroom—there's a place for you here.</p>
+        </div>
+        <div class="users-grid">
+          <div class="user-card">
+            <div class="user-icon">📷</div>
+            <h4>Fuji Shooters</h4>
+            <p>Share and discover film simulation recipes. Classic Chrome at golden hour? Portra 400 simulation? It's all here.</p>
+          </div>
+          <div class="user-card">
+            <div class="user-icon">🎨</div>
+            <h4>Lightroom Editors</h4>
+            <p>Showcase your presets with the photos that made them. Let others see exactly what settings achieved your look.</p>
+          </div>
+          <div class="user-card">
+            <div class="user-icon">🎬</div>
+            <h4>Video Colorists</h4>
+            <p>LUT creators using Lumix, Blackmagic, or any camera. Share your color grades alongside sample footage.</p>
+          </div>
+          <div class="user-card">
+            <div class="user-icon">🎞️</div>
+            <h4>Film Photographers</h4>
+            <p>Document which stock, development process, and scanning setup you used. Help others recreate the analog magic.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Tech Stack -->
+    <section class="tech-stack" id="tech">
+      <div class="container">
+        <div class="section-header">
+          <h2>Built on modern infrastructure</h2>
+          <p>Scalable, fast, and cost-efficient—powered by Google Cloud</p>
+        </div>
+        <div class="tech-grid">
+          <div class="tech-category">
+            <h3>Frontend & Mobile</h3>
+            <div class="tech-list">
+              <span class="tech-item">React Native (Expo)</span>
+              <span class="tech-item">Next.js</span>
+              <span class="tech-item">TypeScript</span>
+              <span class="tech-item">TanStack Query</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3>Backend & API</h3>
+            <div class="tech-list">
+              <span class="tech-item">Node.js</span>
+              <span class="tech-item">Fastify</span>
+              <span class="tech-item">Zod Validation</span>
+              <span class="tech-item">OpenAPI</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3>Database & Storage</h3>
+            <div class="tech-list">
+              <span class="tech-item">PostgreSQL</span>
+              <span class="tech-item">PostGIS</span>
+              <span class="tech-item">Prisma ORM</span>
+              <span class="tech-item">Cloud Storage</span>
+            </div>
+          </div>
+          <div class="tech-category">
+            <h3>Cloud & DevOps</h3>
+            <div class="tech-list">
+              <span class="tech-item">Google Cloud Run</span>
+              <span class="tech-item">Cloud SQL</span>
+              <span class="tech-item">Firebase Auth</span>
+              <span class="tech-item">Mapbox</span>
+              <span class="tech-item">Stripe</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Business Model -->
+    <section class="business" id="business">
+      <div class="container">
+        <div class="section-header">
+          <h2>Sustainable revenue model</h2>
+          <p>Multiple revenue streams without relying on ads</p>
+        </div>
+        <div class="business-grid">
+          <div class="business-card">
+            <div class="business-icon">💳</div>
+            <h3>Transaction Fees</h3>
+            <p>10-15% platform fee on photo, RAW, and license sales. Creators keep the majority of their earnings.</p>
+          </div>
+          <div class="business-card">
+            <div class="business-icon">✨</div>
+            <h3>AI Credit Packs</h3>
+            <p>One-time credit purchases for AI features: recipe matching, edit analysis, and smart tagging.</p>
+          </div>
+          <div class="business-card">
+            <div class="business-icon">🤝</div>
+            <h3>Affiliate Revenue</h3>
+            <p>Earn referral commissions when users purchase gear, film, or software mentioned in recipes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Roadmap -->
+    <section class="roadmap" id="roadmap">
+      <div class="container">
+        <div class="section-header">
+          <h2>Development roadmap</h2>
+          <p>Building in public with clear milestones</p>
+        </div>
+        <div class="roadmap-timeline">
+          <div class="roadmap-item">
+            <div class="roadmap-phase">Q4 2025</div>
+            <h4>Foundation</h4>
+            <ul>
+              <li>Core architecture</li>
+              <li>Auth & profiles</li>
+              <li>Database design</li>
+              <li>Image pipeline</li>
+            </ul>
+          </div>
+          <div class="roadmap-item current">
+            <div class="roadmap-phase">Q1 2026</div>
+            <h4>MVP Launch</h4>
+            <ul>
+              <li>Posts & recipes</li>
+              <li>Map discovery</li>
+              <li>Social features</li>
+              <li>Stripe payments</li>
+            </ul>
+          </div>
+          <div class="roadmap-item future">
+            <div class="roadmap-phase">Q2 2026</div>
+            <h4>AI Features</h4>
+            <ul>
+              <li>Recipe matching</li>
+              <li>Edit analysis</li>
+              <li>Smart tagging</li>
+              <li>Content moderation</li>
+            </ul>
+          </div>
+          <div class="roadmap-item future">
+            <div class="roadmap-phase">Q3 2026</div>
+            <h4>Creator Tools</h4>
+            <ul>
+              <li>Booking system</li>
+              <li>Portfolio pages</li>
+              <li>Bundle sales</li>
+              <li>Analytics</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Team -->
+    <section class="team" id="team">
+      <div class="container">
+        <div class="section-header">
+          <h2>Meet the founder</h2>
+          <p>Solo founder building the tool I wish existed</p>
+        </div>
+        <div class="team-content">
+          <div class="founder-card">
+            <div class="founder-photo">OL</div>
+            <div class="founder-name">Oscar Leon</div>
+            <div class="founder-role">Founder & Developer</div>
+            <p class="founder-bio">Full-stack developer and photographer. Previously built products at startups. Passionate about making photography knowledge more accessible.</p>
+            <div class="founder-links">
+              <a href="mailto:hello@descubri.app" title="Email">📧</a>
+              <a href="https://linkedin.com" title="LinkedIn">💼</a>
+              <a href="https://twitter.com" title="Twitter">🐦</a>
+            </div>
+          </div>
+          <div class="company-info">
+            <h3>About Descubri</h3>
+            <p>Descubri (Spanish for "I discovered") was born from frustration. As a photographer, I spent hours hunting for locations across scattered Instagram posts and Reddit threads. When I found a great spot, I'd wonder—what film simulation did they use? What Lightroom preset? What time of day?</p>
+            <p>I'm building Descubri to be the all-in-one resource I wish existed: a map-based community where photographers share not just their photos, but the full story of how they were made—and optionally monetize their work without the complexity of setting up a store.</p>
+            <div class="company-stats">
+              <div class="stat">
+                <div class="stat-value">2026</div>
+                <div class="stat-label">Founded</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">MVP</div>
+                <div class="stat-label">Stage</div>
+              </div>
+              <div class="stat">
+                <div class="stat-value">GCP</div>
+                <div class="stat-label">Infrastructure</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Final CTA -->
+    <section class="final-cta">
+      <div class="container">
+        <div class="cta-box">
+          <h2>Be part of the early community</h2>
+          <p>We're launching soon. Get early access and help shape the product.</p>
+          <a href="mailto:hello@descubri.app?subject=Early%20Access%20Request" class="btn">Request Early Access →</a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="logo">
+            <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" stroke="#a78bfa" stroke-width="2"/>
+              <circle cx="16" cy="16" r="6" fill="#a78bfa"/>
+            </svg>
+            Descubri
+          </span>
+          <p>A map-based community for photographers to discover locations, share shot recipes, and sell their work.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How it Works</a></li>
+            <li><a href="#roadmap">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#team">About</a></li>
+            <li><a href="mailto:hello@descubri.app">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Descubri. All rights reserved.</span>
+        <span>Built with ❤️ for photographers</span>
+      </div>
+    </footer>
   </body>
 </html>
