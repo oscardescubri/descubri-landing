@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>About Descubri — Photography App for Photo Locations & Shot Recipes</title>
+    <meta name="description" content="Descubri is a photography app for discovering photo locations on a map and sharing shot recipes. Built by Oscar Leon." />
+    <link rel="canonical" href="https://descubri.app/about" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#08090a" />
+
+    <meta property="og:site_name" content="Descubri" />
+    <meta property="og:title" content="About Descubri" />
+    <meta property="og:description" content="Descubri is a photography app for photo locations and shot recipes. Built by Oscar Leon." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://descubri.app/about" />
+    <meta property="og:image" content="https://descubri.app/og.jpg" />
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#08090a;color:#e8e8ec;line-height:1.7}
+      a{color:#a78bfa;text-decoration:none}
+      a:hover{text-decoration:underline}
+      .bg{position:fixed;inset:-30%;background:
+        radial-gradient(circle at 30% 15%, rgba(167,139,250,0.10), transparent 45%),
+        radial-gradient(circle at 75% 55%, rgba(64,156,255,0.08), transparent 48%),
+        radial-gradient(circle at 55% 85%, rgba(74,222,128,0.06), transparent 40%);
+        pointer-events:none;z-index:0
+      }
+      .container{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:72px 24px 96px}
+      .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:36px}
+      .brand{display:flex;align-items:center;gap:10px}
+      .brand img{width:28px;height:28px;border-radius:6px}
+      .brand span{font-weight:800}
+      .nav{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
+      .pill{padding:10px 14px;border:1px solid rgba(255,255,255,0.10);border-radius:999px;background:rgba(255,255,255,0.03);font-size:14px;color:#c9c9d2}
+      .pill:hover{border-color:rgba(167,139,250,0.35);text-decoration:none}
+      h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(38px,5.6vw,56px);font-weight:400;line-height:1.08;margin:10px 0 12px}
+      .sub{color:#9a9aa4;font-size:18px;max-width:760px}
+      .card{margin-top:26px;padding:22px;border:1px solid rgba(255,255,255,0.08);border-radius:18px;background:rgba(255,255,255,0.02)}
+      .card h2{font-size:18px;margin-bottom:10px}
+      .card p{color:#9a9aa4;margin:10px 0}
+      .list{margin-top:10px;padding-left:18px;color:#9a9aa4}
+      li{margin:8px 0}
+      .cta{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+      .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 18px;border-radius:12px;font-weight:800}
+      .btnPrimary{background:linear-gradient(135deg,#a78bfa 0%,#818cf8 100%);color:#08090a}
+      .btnSecondary{border:1px solid rgba(255,255,255,0.14);color:#e8e8ec;background:rgba(255,255,255,0.03)}
+      footer{margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);color:#7c7c86;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+      @media(max-width:720px){.top{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}}
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Descubri",
+      "url": "https://descubri.app/about",
+      "isPartOf": {
+        "@type": "WebSite",
+        "name": "Descubri",
+        "url": "https://descubri.app/"
+      },
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "Descubri",
+        "applicationCategory": "PhotographyApplication",
+        "operatingSystem": "iOS, Android"
+      }
+    }
+    </script>
+  </head>
+
+  <body>
+    <div class="bg"></div>
+
+    <main class="container">
+      <div class="top">
+        <a class="brand" href="/">
+          <img src="/icon.png" alt="Descubri icon" />
+          <span>Descubri</span>
+        </a>
+        <nav class="nav" aria-label="Quick links">
+          <a class="pill" href="/">Home</a>
+          <a class="pill" href="/shot-recipes">Shot Recipes</a>
+          <a class="pill" href="/privacy">Privacy</a>
+          <a class="pill" href="/terms">Terms</a>
+        </nav>
+      </div>
+
+      <header>
+        <p class="pill" style="display:inline-flex;gap:8px;align-items:center;">
+          <span style="width:6px;height:6px;border-radius:999px;background:#4ade80;box-shadow:0 0 10px #4ade80;"></span>
+          About
+        </p>
+        <h1>Descubri is where photographers share the “how,” not just the photo.</h1>
+        <p class="sub">
+          Descubri is a photography app in development: discover photo locations on a map, share shot recipes (Fuji film sims, Lightroom presets, LUTs, film stocks), and optionally sell originals and licenses.
+        </p>
+      </header>
+
+      <section class="card">
+        <h2>Why I’m building this</h2>
+        <p>
+          Photography knowledge is scattered across Instagram geo-tags, Reddit threads, and YouTube comments. The best locations are hard to find, and the recipes behind great edits are often gatekept.
+        </p>
+        <p>
+          Descubri brings it all together: the location, the recipe, and the proof—so photographers can learn faster and share smarter.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>What Descubri will include</h2>
+        <ul class="list">
+          <li><strong>Map-based discovery</strong> of photography locations</li>
+          <li><strong>Shot recipes</strong> for Fuji sims, Lightroom presets, LUTs, and film stocks</li>
+          <li><strong>Spot protection</strong> (fuzzy locations + controlled access to exact coordinates)</li>
+          <li><strong>Creator marketplace</strong> for full-res files, RAWs, and licenses</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Who’s behind it</h2>
+        <p><strong>Oscar Leon</strong> — founder & developer.</p>
+        <p>
+          Want early access or want to collaborate? Email me at
+          <a href="mailto:hello@descubri.app">hello@descubri.app</a>.
+        </p>
+
+        <div class="cta">
+          <a class="btn btnPrimary" href="mailto:hello@descubri.app?subject=Early%20Access%20—%20Descubri">Request Early Access</a>
+          <a class="btn btnSecondary" href="/">Back to Home</a>
+        </div>
+      </section>
+
+      <footer>
+        <span>© 2026 Descubri</span>
+        <span><a href="mailto:hello@descubri.app">hello@descubri.app</a></span>
+      </footer>
+    </main>
+  </body>
+</html>
