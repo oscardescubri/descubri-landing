@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Shot Recipes — Fuji Film Sim, Lightroom Presets, LUTs & Film Stocks | Descubri</title>
+    <meta name="description" content="Descubri shot recipes: learn and share Fuji film simulation recipes, Lightroom preset settings, LUTs, and film stock looks—paired with real photos and locations." />
+
+    <link rel="canonical" href="https://descubri.app/shot-recipes" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Shot Recipes (Fuji Sims, Lightroom Presets, LUTs) | Descubri" />
+    <meta property="og:description" content="Discover and share shot recipes—Fuji film sims, Lightroom presets, LUTs, and film stocks—paired with real photos and locations." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://descubri.app/shot-recipes" />
+    <meta property="og:image" content="https://descubri.app/og.jpg" />
+
+    <!-- Twitter/X (optional, helps link previews) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shot Recipes | Descubri" />
+    <meta name="twitter:description" content="Fuji sims, Lightroom presets, LUTs, film stocks—shared as recipes you can actually recreate." />
+    <meta name="twitter:image" content="https://descubri.app/og.jpg" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+      *{box-sizing:border-box;margin:0;padding:0}
+      body{font-family:'DM Sans',system-ui,-apple-system,sans-serif;background:#08090a;color:#e8e8ec;line-height:1.7}
+      a{color:#a78bfa;text-decoration:none}
+      a:hover{text-decoration:underline}
+      .bg{position:fixed;inset:-30%;background:
+        radial-gradient(circle at 30% 20%, rgba(167,139,250,0.10), transparent 45%),
+        radial-gradient(circle at 70% 60%, rgba(64,156,255,0.08), transparent 48%),
+        radial-gradient(circle at 55% 85%, rgba(74,222,128,0.06), transparent 40%);
+        pointer-events:none;z-index:0
+      }
+      .container{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:72px 24px 96px}
+      .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:34px}
+      .brand{display:flex;align-items:center;gap:10px}
+      .brand img{width:28px;height:28px;border-radius:6px}
+      .brand span{font-weight:700}
+      .nav{display:flex;gap:16px;flex-wrap:wrap;justify-content:flex-end}
+      .pill{padding:10px 14px;border:1px solid rgba(255,255,255,0.10);border-radius:999px;background:rgba(255,255,255,0.03);font-size:14px;color:#c9c9d2}
+      .pill:hover{border-color:rgba(167,139,250,0.35);text-decoration:none}
+      h1{font-family:'Instrument Serif',Georgia,serif;font-size:clamp(40px,6vw,60px);font-weight:400;line-height:1.05;margin:12px 0 14px}
+      .sub{color:#9a9aa4;font-size:18px;max-width:760px}
+      .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin:28px 0 42px}
+      .btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:12px;font-weight:700}
+      .btnPrimary{background:linear-gradient(135deg,#a78bfa 0%,#818cf8 100%);color:#08090a}
+      .btnSecondary{border:1px solid rgba(255,255,255,0.14);color:#e8e8ec;background:rgba(255,255,255,0.03)}
+      .btnSecondary:hover{background:rgba(255,255,255,0.06);text-decoration:none}
+      .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px}
+      .card{padding:20px;border:1px solid rgba(255,255,255,0.08);border-radius:16px;background:rgba(255,255,255,0.02)}
+      .card h2{font-size:18px;margin-bottom:8px}
+      .card p{color:#9a9aa4;font-size:14px}
+      .section{margin-top:44px}
+      .section h2{font-size:22px;margin-bottom:10px}
+      .section p{color:#9a9aa4;margin-bottom:14px}
+      ul{padding-left:22px;color:#9a9aa4}
+      li{margin:8px 0}
+      .faq{margin-top:14px;display:grid;gap:10px}
+      details{border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:14px 16px;background:rgba(255,255,255,0.02)}
+      summary{cursor:pointer;font-weight:700}
+      details p{margin-top:10px}
+      footer{margin-top:60px;padding-top:24px;border-top:1px solid rgba(255,255,255,0.08);color:#7c7c86;font-size:13px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+      @media(max-width:720px){.grid{grid-template-columns:1fr}.top{align-items:flex-start;flex-direction:column}.nav{justify-content:flex-start}}
+    </style>
+
+    <!-- Structured data: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Descubri",
+      "applicationCategory": "PhotographyApplication",
+      "operatingSystem": "iOS, Android",
+      "url": "https://descubri.app/",
+      "description": "A map-based community for photographers to discover photo locations, share shot recipes (Fuji film sims, Lightroom presets, LUTs, film stocks), and sell originals and licenses."
+    }
+    </script>
+  </head>
+
+  <body>
+    <div class="bg"></div>
+
+    <main class="container">
+      <div class="top">
+        <a class="brand" href="/">
+          <img src="/icon.png" alt="Descubri icon" />
+          <span>Descubri</span>
+        </a>
+        <nav class="nav" aria-label="Quick links">
+          <a class="pill" href="/">Home</a>
+          <a class="pill" href="/privacy">Privacy</a>
+          <a class="pill" href="/terms">Terms</a>
+        </nav>
+      </div>
+
+      <header>
+        <p class="pill" style="display:inline-flex;gap:8px;align-items:center;">
+          <span style="width:6px;height:6px;border-radius:999px;background:#4ade80;box-shadow:0 0 10px #4ade80;"></span>
+          Shot Recipes
+        </p>
+        <h1>Shot recipes you can actually recreate.</h1>
+        <p class="sub">
+          Descubri is building a shared library of <strong>Fuji film simulation recipes</strong>, <strong>Lightroom preset settings</strong>,
+          <strong>LUT looks</strong>, and <strong>film stock recipes</strong>—paired with real photos and where they were shot.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="mailto:hello@descubri.app?subject=Early%20Access%20—%20Shot%20Recipes">Request Early Access</a>
+          <a class="btn btnSecondary" href="#faq">What’s a shot recipe?</a>
+        </div>
+      </header>
+
+      <section class="grid" aria-label="Recipe types">
+        <div class="card">
+          <h2>Fuji film simulation recipes</h2>
+          <p>Classic Chrome, Portra-inspired looks, moody night recipes—settings shared in a consistent format.</p>
+        </div>
+        <div class="card">
+          <h2>Lightroom preset settings</h2>
+          <p>Not just “buy my preset”—actual sliders and values so you can learn and iterate.</p>
+        </div>
+        <div class="card">
+          <h2>LUT recipes for video</h2>
+          <p>Colorists can share LUTs with before/after samples and the context behind the grade.</p>
+        </div>
+        <div class="card">
+          <h2>Film stock recipes</h2>
+          <p>Stock + ISO + lab/dev notes + scan workflow—document the full analog pipeline.</p>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Why recipes matter</h2>
+        <p>
+          Most photography knowledge lives in scattered YouTube comments, Discord chats, or “DM me” posts.
+          Descubri makes recipes searchable, repeatable, and tied to real examples.
+        </p>
+        <ul>
+          <li><strong>Learn faster:</strong> see settings + results side-by-side.</li>
+          <li><strong>Share your process:</strong> give others something useful, not vague “vibes.”</li>
+          <li><strong>Protect your work:</strong> share public basics, keep advanced details gated if you want.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="faq">
+        <h2>FAQ</h2>
+        <div class="faq">
+          <details>
+            <summary>What is a “shot recipe”?</summary>
+            <p>A shot recipe is the repeatable “how” behind an image: camera settings, film sim/preset/LUT/stock, and any key notes (time of day, lighting, etc.).</p>
+          </details>
+          <details>
+            <summary>Can I share recipes without giving away my secret spot?</summary>
+            <p>Yes. Descubri is built around spot protection—share fuzzed locations publicly and reveal exact coordinates only when you choose.</p>
+          </details>
+          <details>
+            <summary>Is Descubri a marketplace too?</summary>
+            <p>That’s the plan. Creators will be able to sell full-resolution files, RAWs, or licenses—directly from posts.</p>
+          </details>
+        </div>
+      </section>
+
+      <footer>
+        <span>© 2026 Descubri</span>
+        <span><a href="mailto:hello@descubri.app">hello@descubri.app</a></span>
+      </footer>
+    </main>
+  </body>
+</html>
