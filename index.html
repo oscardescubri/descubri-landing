@@ -1,60 +1,106 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Primary SEO -->
-    <title>Descubri — Discover Photo Locations & Shot Recipes</title>
-    <meta
-      name="description"
-      content="A community for photographers to discover photo locations on a map, share shot recipes (Fuji sims, LUTs, Lightroom presets, film stocks), and sell originals."
-    />
-    <link rel="canonical" href="https://descubri.app/" />
-    <meta name="robots" content="index,follow,max-image-preview:large" />
-    <meta name="theme-color" content="#08090a" />
+  <!-- Primary SEO -->
+  <title>Descubri — Photography App for Photo Locations & Shot Recipes</title>
+  <meta
+    name="description"
+    content="Descubri is a photography app to discover photo locations on a map and share shot recipes (Fuji film sims, Lightroom presets, LUTs, film stocks)."
+  />
+  <link rel="canonical" href="https://descubri.app/" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="theme-color" content="#08090a" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Descubri — Discover Photo Locations & Shot Recipes" />
-    <meta
-      property="og:description"
-      content="Find the shot. Learn the recipe. Own the original. A map-based community for photographers."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://descubri.app/" />
-    <meta property="og:image" content="https://descubri.app/og.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+  <!-- Brand / App signals -->
+  <meta name="application-name" content="Descubri" />
+  <meta name="apple-mobile-web-app-title" content="Descubri" />
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Descubri — Discover Photo Locations & Shot Recipes" />
-    <meta name="twitter:description" content="Find the shot. Learn the recipe. Own the original." />
-    <meta name="twitter:image" content="https://descubri.app/og.jpg" />
+  <!-- Open Graph -->
+  <meta property="og:site_name" content="Descubri" />
+  <meta property="og:title" content="Descubri — Photography App for Photo Locations & Shot Recipes" />
+  <meta
+    property="og:description"
+    content="Discover photo locations on a map and share shot recipes—Fuji film sims, Lightroom presets, LUTs, film stocks."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://descubri.app/" />
+  <meta property="og:image" content="https://descubri.app/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Descubri — Photography app for photo locations and shot recipes" />
 
-    <!-- Icons -->
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
-    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+  <!-- Twitter (X) preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Descubri — Photography App for Photo Locations & Shot Recipes" />
+  <meta
+    name="twitter:description"
+    content="Discover photo locations on a map and share shot recipes—Fuji film sims, Lightroom presets, LUTs, film stocks."
+  />
+  <meta name="twitter:image" content="https://descubri.app/og.jpg" />
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Icons -->
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
 
-    <!-- Schema -->
-    <script type="application/ld+json">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Schema (brand/entity + app) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "https://descubri.app/#org",
+        "name": "Descubri",
+        "url": "https://descubri.app/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://descubri.app/icon.png"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "support",
+          "email": "hello@descubri.app"
+        },
+        "sameAs": [
+          "https://github.com/oscardescubri/descubri-landing"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://descubri.app/#website",
+        "url": "https://descubri.app/",
+        "name": "Descubri",
+        "publisher": { "@id": "https://descubri.app/#org" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://descubri.app/#webpage",
+        "url": "https://descubri.app/",
+        "name": "Descubri — Photography App for Photo Locations & Shot Recipes",
+        "isPartOf": { "@id": "https://descubri.app/#website" },
+        "about": { "@id": "https://descubri.app/#app" }
+      },
+      {
         "@type": "SoftwareApplication",
+        "@id": "https://descubri.app/#app",
         "name": "Descubri",
         "applicationCategory": "PhotographyApplication",
         "operatingSystem": "iOS, Android",
-        "description": "A map-based community for photographers to discover photo locations, share shot recipes, and sell originals, RAWs, and licenses.",
+        "description": "Descubri is a photography app to discover photo locations on a map and share shot recipes (Fuji film sims, Lightroom presets, LUTs, film stocks).",
         "url": "https://descubri.app/",
         "offers": {
           "@type": "Offer",
@@ -62,7 +108,9 @@
           "priceCurrency": "USD"
         }
       }
-    </script>
+    ]
+  }
+  </script>
 
     <style>
       *{box-sizing:border-box;margin:0;padding:0}
