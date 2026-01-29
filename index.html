@@ -3,17 +3,67 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
     <title>Descubri — Discover Photo Locations & Shot Recipes</title>
-    <meta name="description" content="A community for photographers to discover photo locations on a map, share shot recipes (Fuji sims, LUTs, Lightroom presets, film stocks), and sell originals." />
+    <meta
+      name="description"
+      content="A community for photographers to discover photo locations on a map, share shot recipes (Fuji sims, LUTs, Lightroom presets, film stocks), and sell originals."
+    />
+    <link rel="canonical" href="https://descubri.app/" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <meta name="theme-color" content="#08090a" />
+
+    <!-- Open Graph -->
     <meta property="og:title" content="Descubri — Discover Photo Locations & Shot Recipes" />
-    <meta property="og:description" content="Find the shot. Learn the recipe. Own the original. A map-based community for photographers." />
+    <meta
+      property="og:description"
+      content="Find the shot. Learn the recipe. Own the original. A map-based community for photographers."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://descubri.app" />
+    <meta property="og:url" content="https://descubri.app/" />
+    <meta property="og:image" content="https://descubri.app/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="icon" type="image/png" href="./icon.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <meta name="twitter:title" content="Descubri — Discover Photo Locations & Shot Recipes" />
+    <meta name="twitter:description" content="Find the shot. Learn the recipe. Own the original." />
+    <meta name="twitter:image" content="https://descubri.app/og.jpg" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Descubri",
+        "applicationCategory": "PhotographyApplication",
+        "operatingSystem": "iOS, Android",
+        "description": "A map-based community for photographers to discover photo locations, share shot recipes, and sell originals, RAWs, and licenses.",
+        "url": "https://descubri.app/",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+
     <style>
       *{box-sizing:border-box;margin:0;padding:0}
       html{scroll-behavior:smooth}
@@ -212,15 +262,16 @@
       }
     </style>
   </head>
+
   <body>
     <div class="bg-glow"></div>
     <div class="bg-glow-2"></div>
-    
+
     <!-- Navigation -->
     <nav>
       <div class="nav-inner">
-        <a href="#" class="nav-logo">
-          <img src="./icon.png" alt="">
+        <a href="/" class="nav-logo">
+          <img src="/icon.png" alt="Descubri logo" />
           Descubri
         </a>
         <div class="nav-links">
@@ -232,21 +283,22 @@
         </div>
       </div>
     </nav>
-    
+
     <!-- Hero -->
     <section class="hero">
       <div class="hero-inner">
         <span class="badge">MVP in Development</span>
-        <h1>Find the shot.<br>Learn the <span class="accent">recipe</span>.<br>Own the original.</h1>
+        <h1>Find the shot.<br />Learn the <span class="accent">recipe</span>.<br />Own the original.</h1>
         <p class="hero-subtitle">
-          A map-based community for photographers to discover photo locations, share shot recipes—Fuji film sims, Lightroom presets, LUTs, film stocks—and sell originals, RAWs, and licenses.
+          A map-based community for photographers to discover photo locations, share shot recipes—Fuji film sims,
+          Lightroom presets, LUTs, film stocks—and sell originals, RAWs, and licenses.
         </p>
         <div class="hero-cta">
           <a href="mailto:hello@descubri.app?subject=Early%20Access%20Request" class="btn">Request Early Access</a>
           <a href="#features" class="btn btn-secondary">See Features</a>
         </div>
       </div>
-      
+
       <!-- App Preview -->
       <div class="app-preview">
         <div class="mockup-container">
@@ -270,6 +322,7 @@
               </div>
             </div>
           </div>
+
           <div class="phone-mockup">
             <div class="phone-screen">
               <div class="phone-header"><span>Shot Recipe</span></div>
@@ -299,10 +352,11 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
-    
+
     <!-- Problem -->
     <section class="problem" id="problem">
       <div class="container">
@@ -346,7 +400,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Features -->
     <section class="features" id="features">
       <div class="container">
@@ -400,7 +454,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- How It Works -->
     <section class="how-it-works" id="how-it-works">
       <div class="container">
@@ -433,7 +487,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Target Users -->
     <section class="target-users" id="users">
       <div class="container">
@@ -473,7 +527,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Business Model -->
     <section class="business" id="business">
       <div class="container">
@@ -506,7 +560,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Roadmap -->
     <section class="roadmap" id="roadmap">
       <div class="container">
@@ -558,7 +612,7 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Team -->
     <section class="team" id="team">
       <div class="container">
@@ -594,12 +648,16 @@
                 <div class="stat-value">MVP</div>
                 <div class="stat-label">Stage</div>
               </div>
+              <div class="stat">
+                <div class="stat-value">Solo</div>
+                <div class="stat-label">Team</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-    
+
     <!-- Final CTA -->
     <section class="final-cta">
       <div class="container">
@@ -610,13 +668,13 @@
         </div>
       </div>
     </section>
-    
+
     <!-- Footer -->
     <footer>
       <div class="footer-inner">
         <div class="footer-brand">
           <span class="logo">
-            <img src="./icon.png" alt="" style="width:24px;height:24px;border-radius:4px">
+            <img src="/icon.png" alt="Descubri logo" style="width:24px;height:24px;border-radius:4px" />
             Descubri
           </span>
           <p>A map-based community for photographers to discover locations, share shot recipes, and sell their work.</p>
@@ -639,8 +697,8 @@
         <div class="footer-col">
           <h4>Legal</h4>
           <ul>
-            <li><a href="./privacy.html">Privacy Policy</a></li>
-            <li><a href="./terms.html">Terms of Service</a></li>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
           </ul>
         </div>
       </div>
