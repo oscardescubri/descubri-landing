@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "app.descubri.mobile",
+      "sha256_cert_fingerprints": [
+        "65:72:21:FE:F0:24:EE:8A:49:9A:19:77:30:D2:32:B2:C0:6A:45:BC:33:47:9E:B8:1C:CF:61:6F:B5:AC:7B:70"
+      ]
+    }
+  }
+]

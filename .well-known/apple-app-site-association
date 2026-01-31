@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "86AX7327A2.app.descubri.mobile",
+        "paths": [
+          "/post/*",
+          "/u/*",
+          "/spot/*",
+          "/recipe/*"
+        ]
+      }
+    ]
+  }
+}
