@@ -3,14 +3,19 @@
     "apps": [],
     "details": [
       {
-        "appID": "86AX7327A2.app.descubri.mobile",
-        "paths": [
-          "/post/*",
-          "/u/*",
-          "/spot/*",
-          "/recipe/*"
+        "appID": "86AX7327A2.app.descubri.ios",
+        "appIDs": ["86AX7327A2.app.descubri.ios"],
+        "paths": ["/post/*", "/u/*", "/spot/*", "/recipe/*"],
+        "components": [
+          { "/": "/post/*" },
+          { "/": "/u/*" },
+          { "/": "/spot/*" },
+          { "/": "/recipe/*" }
         ]
       }
     ]
+  },
+  "webcredentials": {
+    "apps": ["86AX7327A2.app.descubri.ios"]
   }
 }
