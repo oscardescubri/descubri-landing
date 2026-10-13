@@ -1,0 +1,7 @@
+# The photo app's pages moved to /archive/photo-app when descubri.app became the company page (Oct 2026).
+/about               /archive/photo-app/about         301
+/about/              /archive/photo-app/about         301
+/about.html          /archive/photo-app/about         301
+/shot-recipes        /archive/photo-app/shot-recipes  301
+/shot-recipes/       /archive/photo-app/shot-recipes  301
+/shot-recipes.html   /archive/photo-app/shot-recipes  301
